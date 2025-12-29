@@ -1,13 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf6qept8nga53"]
+[gd_scene load_steps=3 format=3 uid="uid://cf6qept8nga53"]
 
+[ext_resource type="Script" uid="uid://dgfrculmiw6wv" path="res://scripts/levels_script/level_1.gd" id="1_6iamk"]
 [ext_resource type="PackedScene" uid="uid://cawpgvea5a3pq" path="res://scenes/enemy_1_.tscn" id="1_ksju7"]
 
 [node name="levelroot" type="Node2D"]
+script = ExtResource("1_6iamk")
 
 [node name="enemys" type="Node2D" parent="."]
 
 [node name="Enemy_1_1" parent="enemys" instance=ExtResource("1_ksju7")]
-position = Vector2(349.351, 62)
+position = Vector2(300, 62)
 
 [node name="Enemy_1_2" parent="enemys" instance=ExtResource("1_ksju7")]
-position = Vector2(940, 57)
+position = Vector2(500, 62)
+
+[node name="Enemy_1_3" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(700, 62)
+
+[node name="Enemy_1_4" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(900, 62)
+
+[node name="Enemy_1_5" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(600, 162)
+
+[node name="Enemy_1_7" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(800, 162)
+
+[node name="Enemy_1_8" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(400, 162)

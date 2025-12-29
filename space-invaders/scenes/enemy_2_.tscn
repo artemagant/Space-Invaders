@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxgn7ch3tk810"]
+
+[ext_resource type="Script" uid="uid://r8ab50g2ulb1" path="res://scripts/enemy_2_.gd" id="1_2inrb"]
+[ext_resource type="Texture2D" uid="uid://dh4ymj7yc6owm" path="res://art/enemys/enemy_1.png" id="2_2w3et"]
+[ext_resource type="Texture2D" uid="uid://fe5iw20sg5hh" path="res://art/enemys/enemy_2.png" id="3_2w3et"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m40pe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2w3et")
+}],
+"loop": true,
+"name": &"level1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2w3et")
+}],
+"loop": true,
+"name": &"level2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rktrr"]
+size = Vector2(16.000002, 7.000001)
+
+[node name="Enemy_2_" type="Area2D"]
+scale = Vector2(5, -5)
+script = ExtResource("1_2inrb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_m40pe")
+animation = &"level2"
+autoplay = "level2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.4999998)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_rktrr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="bullets" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

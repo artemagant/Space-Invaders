@@ -12,5 +12,5 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area. name == "player_bullet" or area. name == "player_bullet2" or area. name == "player_bullet3" or area. name == "player_bullet4" or area. name == "player_bullet5":
+	if area.name in ["player_bullet"] or (area.name.begins_with("player_bullet")):
 		area. queue_free()

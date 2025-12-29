@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://4g3fgtc13083"]
+
+[ext_resource type="Texture2D" uid="uid://d0ap1f463n7kc" path="res://art/bullets/enemys_one/enemy_bullet_fly.png" id="1_d2qol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46jqs"]
+size = Vector2(12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0cue5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d2qol")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="enemy_bullet" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_46jqs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_0cue5")
+animation = &"fly"
+autoplay = "fly"
