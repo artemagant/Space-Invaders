@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cawpgvea5a3pq"]
+[gd_scene load_steps=4 format=3 uid="uid://cawpgvea5a3pq"]
 
+[ext_resource type="Script" uid="uid://clh8otuj2n4ak" path="res://scripts/enemy_1_.gd" id="1_a47vp"]
 [ext_resource type="Texture2D" uid="uid://dh4ymj7yc6owm" path="res://art/enemys/enemy_1.png" id="1_kn8eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rktrr"]
-size = Vector2(16, 14)
+size = Vector2(16.000002, 7.000001)
 
-[node name="Eneny_1_" type="Area2D"]
-scale = Vector2(5, 5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_rktrr")
+[node name="Enemy_1_" type="Area2D"]
+scale = Vector2(5, -5)
+script = ExtResource("1_a47vp")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_kn8eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.4999998)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_rktrr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cawpgvea5a3pq" path="res://scenes/enemy_1_.tscn" id="1_ksju7"]
 
-[node name="level_1" type="Node2D"]
+[node name="levelroot" type="Node2D"]
 
 [node name="enemys" type="Node2D" parent="."]
 
-[node name="Enemy_1_" parent="enemys" instance=ExtResource("1_ksju7")]
-position = Vector2(407.99997, 112.99999)
+[node name="Enemy_1_1" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(349.351, 62)
+
+[node name="Enemy_1_2" parent="enemys" instance=ExtResource("1_ksju7")]
+position = Vector2(940, 57)

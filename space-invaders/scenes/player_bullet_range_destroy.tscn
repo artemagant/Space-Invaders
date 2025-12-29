@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://doheihe4dx38h"]
+
+[ext_resource type="Script" uid="uid://d0uo1ug24rann" path="res://scripts/player_bullet_range_destroy.gd" id="1_y3mx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrn7q"]
+size = Vector2(1349, 46)
+
+[node name="player_bullet_range_destroy" type="Area2D"]
+script = ExtResource("1_y3mx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(574.5, -62)
+shape = SubResource("RectangleShape2D_xrn7q")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

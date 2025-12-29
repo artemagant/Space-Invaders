@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://t6ggc577ijga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npocv"]
+size = Vector2(30, 700)
+
+[node name="level_borders" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1168.088, 318)
+shape = SubResource("RectangleShape2D_npocv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-15.875, 355)
+shape = SubResource("RectangleShape2D_npocv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
