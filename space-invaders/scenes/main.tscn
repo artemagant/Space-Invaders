@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvqcotqf5d3k"]
+[gd_scene load_steps=7 format=3 uid="uid://dvqcotqf5d3k"]
 
 [ext_resource type="PackedScene" uid="uid://bf5o5vfhtomdr" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bb75j5qrswi2k" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cgluulb76e554" path="res://scenes/controllers.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://doheihe4dx38h" path="res://scenes/player_bullet_range_destroy.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://scigq7qdk5m6" path="res://scenes/enemys_bullet_disappiring_zone.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://t6ggc577ijga" path="res://scenes/level_borders.tscn" id="6_tefeu"]
 
 [node name="main" type="Node2D"]
@@ -23,6 +24,16 @@ z_index = 2
 
 [node name="level_borders" parent="." instance=ExtResource("6_tefeu")]
 
+[node name="enemy_bullets" type="Node2D" parent="."]
+
 [node name="levelroot" type="Node2D" parent="."]
 
-[node name="enemy_bullets" type="Node2D" parent="."]
+[node name="health" type="Label" parent="."]
+offset_left = 1093.0
+offset_top = 24.0
+offset_right = 1133.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Enemys_bullet_disappiring_zone" parent="." instance=ExtResource("6_o6xl0")]

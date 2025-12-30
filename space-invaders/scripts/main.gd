@@ -8,7 +8,11 @@ var current_level = null
 var is_loading_level = false  # Флаг для предотвращения двойной загрузки
 
 func _ready() -> void:
+	while Global. level > Global. level_cap:
+		Global. level -= Global. level_cap
+		Global.speed = min(750, Global. speed+100)
 	load_level(Global.level)
+	Global.speed = min(750, Global. speed)
 
 func _process(delta: float) -> void:
 	if Global.shoote and shoot_cd:
@@ -25,6 +29,12 @@ func _process(delta: float) -> void:
 			Global.level = 1
 			Global.speed = min(750, Global. speed+100)
 			load_level(Global.level)
+	if Global. life <= 0:
+		Global. life = 5
+		Global. level = 1
+		Global. speed = 200
+		load_level(Global. level)
+	$health.text = str(Global. life)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left"):
@@ -50,7 +60,7 @@ func create_bullet_player():
 	
 	var base_delay = Global. player_base_dalay
 	var speed_multiplier = Global.speed / 100.0
-	var shoot_delay = max(0.2, base_delay / speed_multiplier)*2
+	var shoot_delay = max(0.1, base_delay / speed_multiplier)*2
 	
 	await get_tree().create_timer(shoot_delay).timeout
 	shoot_cd = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://4g3fgtc13083"]
+[gd_scene load_steps=5 format=3 uid="uid://4g3fgtc13083"]
 
 [ext_resource type="Texture2D" uid="uid://d0ap1f463n7kc" path="res://art/bullets/enemys_one/enemy_bullet_fly.png" id="1_d2qol"]
+[ext_resource type="Script" uid="uid://cfawm27g5yahr" path="res://scripts/enemy_bullet.gd" id="1_qx7rs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46jqs"]
 size = Vector2(12, 16)
@@ -18,6 +19,7 @@ animations = [{
 
 [node name="enemy_bullet" type="Area2D"]
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_qx7rs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_46jqs")
@@ -27,3 +29,5 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0cue5")
 animation = &"fly"
 autoplay = "fly"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

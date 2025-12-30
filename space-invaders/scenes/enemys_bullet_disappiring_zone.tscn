@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://scigq7qdk5m6"]
+
+[ext_resource type="Script" uid="uid://bykwj0h4oiq08" path="res://scripts/enemys_bullet_disappiring_zone.gd" id="1_kbtsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fs74"]
+size = Vector2(1300, 20)
+
+[node name="Enemys_bullet_disappiring_zone" type="Area2D"]
+script = ExtResource("1_kbtsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(600, 640)
+shape = SubResource("RectangleShape2D_3fs74")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

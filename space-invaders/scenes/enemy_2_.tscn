@@ -42,8 +42,7 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_rktrr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+wait_time = 5.0
 
 [node name="bullets" type="Node2D" parent="."]
 

@@ -1,16 +1,9 @@
 extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.name in ["player_bullet"] or (area.name.begins_with("player_bullet")):
 		area. queue_free()
+	if area.name in ["enemy_bullet"] or (area.name.begins_with("enemy_bullet")):
+		area. queue_free()
+	if area. name. begins_with("enemy_"):
+		Global. life  = 0
